@@ -6,31 +6,22 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
-import './index.css';
 
 function App() {
     const user = JSON.parse(localStorage.getItem('user'));
-
     return (
         <Router>
             <Navbar />
-            <main className="container">
+            <div className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route
-                        path="/dashboard"
-                        element={user ? <Dashboard /> : <Navigate to="/login" />}
-                    />
-                    <Route
-                        path="/admin"
-                        element={user?.role === 'admin' ? <AdminDashboard /> : <Navigate to="/" />}
-                    />
+                    <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+                    <Route path="/admin" element={user?.role === 'admin' ? <AdminDashboard /> : <Navigate to="/" />} />
                 </Routes>
-            </main>
+            </div>
         </Router>
     );
 }
-
 export default App;

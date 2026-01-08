@@ -16,18 +16,15 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background: radial-gradient(circle at top right, #1e293b, #0f172a);
     color: var(--text-main);
     font-family: var(--font-main);
-    overflow-x: hidden;
-    background: radial-gradient(circle at top right, #1e293b, #0f172a);
     min-height: 100vh;
 }
 
 .glass-card {
     background: var(--bg-glass);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 2rem;
@@ -42,7 +39,7 @@ body {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
 .btn-primary:hover {
@@ -58,10 +55,11 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     color: var(--text-dim);
-    font-size: 0.9rem;
 }
 
-.input-group input {
+.input-group input,
+.input-group select,
+.input-group textarea {
     width: 100%;
     padding: 0.8rem;
     background: rgba(15, 23, 42, 0.5);
@@ -71,6 +69,8 @@ body {
     outline: none;
 }
 
-.input-group input:focus {
-    border-color: var(--primary);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
