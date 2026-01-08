@@ -19,6 +19,3 @@ CREATE TABLE IF NOT EXISTS books (
     image_url VARCHAR(500),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- Insert Dummy Admin (password: admin123) - hashed version should be used in app
--- For now, we will handle insertion via the app's register logic or manual seed
