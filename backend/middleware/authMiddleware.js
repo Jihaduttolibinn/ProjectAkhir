@@ -13,4 +13,19 @@ const adminMiddleware = (req, res, next) => {
     next();
 };
 
-module.exports = { authMiddleware, adminMiddleware };
+const apiKeyMiddleware = (type) => async (req, res, next) => {
+    const apiKey = req.header('x-api-key');
+    if (!apiKey) return res.status(401).json({ message: 'API Key is required' });
+
+    try {
+        const [keys] = await db.execute('SELECT * FROM api_keys WHERE api_key = ? AND key_name = ?', [apiKey, type]);
+        if (keys.length === 0) return res.status(401).json({ message: `Invalid API Key for ${type} Access` });
+
+        req.apiKeyOwnerId = keys[0].user_id;
+        next();
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+module.exports = { authMiddleware, adminMiddleware, apiKeyMiddleware };
