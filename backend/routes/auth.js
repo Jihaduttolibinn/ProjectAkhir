@@ -27,6 +27,10 @@ router.post('/login', async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
+router.post('/logout', (req, res) => {
+    res.json({ message: 'Logged out successfully' });
+});
+
 // route management API keys
 const { authMiddleware } = require('../middleware/authMiddleware');
 
