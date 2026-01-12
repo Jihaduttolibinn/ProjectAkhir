@@ -7,7 +7,7 @@ const Navbar = () => {
     const handleLogout = () => { localStorage.removeItem('token'); localStorage.removeItem('user'); navigate('/login'); window.location.reload(); };
 
     return (
-        <nav style={{ padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', background: 'var(--bg-glass)', backdropFilter: 'blur(10px)' }}>
+        <nav style={{ padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', background: 'transparent', backdropFilter: 'blur(5px)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
             <Link to="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 'bold' }}>LibAPI</Link>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                 <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
